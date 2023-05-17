@@ -9,9 +9,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { AppComponent } from './app.component';
+import { TableViewComponent } from './components/table-view/table-view.component';
 
 @NgModule({
-  declarations: [AppComponent, TrendingSubjectsComponent, HomeComponent],
+  declarations: [AppComponent, TrendingSubjectsComponent, HomeComponent, TableViewComponent],
   imports: [
     BrowserModule,
     RouterModule,
