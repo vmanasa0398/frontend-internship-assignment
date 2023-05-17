@@ -1,1 +1,19 @@
-<router-outlet></router-outlet>
+<div class="container">
+  <h1 class="title">Books Library</h1>
+  <div class="search-container">
+    <input type="text" class="search-input" [(ngModel)]="searchText" placeholder="Search by book title or author name">
+    <button class="clear-button" *ngIf="searchText" (click)="clearSearch()">Clear</button>
+  </div>
+  <div class="loader" *ngIf="loading"></div>
+  <div class="error-message" *ngIf="error">{{ error }}</div>
+  <div class="results" *ngIf="booksList && booksList.length > 0">
+    <h2 class="results-heading">Search Results</h2>
+    <app-table-view [booksList]="booksList"></app-table-view>
+    <div class="pagination">
+      <button class="pagination-button" [disabled]="page === 1" (click)="previousPage()">Previous</button>
+      <span class="page-info">Page {{ page }}</span>
+      <button class="pagination-button" [disabled]="booksList.length < limit" (click)="nextPage()">Next</button>
+    </div>
+  </div>
+</div>
+
